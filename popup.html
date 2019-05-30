@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      button {
+        height: 30px;
+        width: 30px;
+        outline: none;
+}
+    </style>
+  </head>
+  <body>
+    <button id="changeColor"></button>
+    <script src="popup.js">
+let changeColor = document.getElementById('changeColor');
+chrome.storage.sync.get('color', function(data) {
+  changeColor.style.backgroundColor = data.color;
+  changeColor.setAttribute('value', data.color);
+});
+    </script>
+  </body>
+</html>
